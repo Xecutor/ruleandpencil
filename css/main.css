@@ -1,3 +1,18 @@
 .root {
     background-color: wheat;
 }
+
+.mainDiv {
+    height:100vh;
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+.drawCanvas {
+    margin: 0;
+    border: 1px solid blue;
+    width:500px;
+    height:500px;
+}
