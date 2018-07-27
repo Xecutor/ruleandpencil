@@ -4,23 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/paper": "^0.9.8",
-    "@types/react": "^16.0.5",
-    "@types/react-bootstrap": "^0.31.1",
-    "@types/react-dom": "^15.5.4",
+    "@types/react": "^16.0.31",
+    "@types/react-dom": "^16.0.3",
+    "acorn": "^5.2.1",
     "paper": "^0.11.4",
-    "react": "^15.6.1",
-    "react-bootstrap": "^0.31.3",
-    "react-dom": "^15.6.1",
-    "typescript": "^2.5.2"
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-draggable": "^3.0.5",
+    "semantic-ui-react": "^0.82.1",
+    "typescript": "^2.5.3"
   },
   "devDependencies": {
-    "awesome-typescript-loader": "^3.1.2",
-    "source-map-loader": "^0.2.1"
+    "awesome-typescript-loader": "^3.2.3",
+    "source-map-loader": "^0.2.3"
   }
 }

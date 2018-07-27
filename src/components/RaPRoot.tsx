@@ -2,7 +2,8 @@ import * as React from "react";
 
 import * as paper from 'paper';
 
-import {Button, OverlayTrigger, Tooltip} from 'react-bootstrap';
+import {Button} from 'semantic-ui-react'
+import Draggable from 'react-draggable'
 
 interface RaPRootState {
     modal: boolean;
@@ -15,9 +16,9 @@ export class RaPRoot extends React.Component<any, any> {
     isDown : boolean = false;
     downItem : paper.Item;
     downPos : paper.Point;
-    constructor()
+    constructor(props:any)
     {
-        super();
+        super(props);
         this.state = {
         }
         setInterval(()=>this.incCnt(), 1000);
@@ -109,7 +110,11 @@ export class RaPRoot extends React.Component<any, any> {
     render() {
         return (
             <div className="mainDiv debugBorder">
-                <span className="debugBorder"><Button className="bsNormal" onClick={()=>this.click()}>Click</Button></span>
+                <Draggable>
+                    <span className="debugBorder">
+                        <Button onClick={()=>this.click()}>Click</Button>
+                    </span>
+                </Draggable>
                 <canvas 
                     className="drawCanvas" 
                     ref={(canvas)=>this.canvas=canvas} 
