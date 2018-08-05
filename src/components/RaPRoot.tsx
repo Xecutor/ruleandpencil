@@ -4,6 +4,10 @@ import * as paper from 'paper';
 
 import {Button} from 'semantic-ui-react'
 import Draggable from 'react-draggable'
+import { PaletteEditor } from "./palette-editor";
+import {Palette} from '../utils/palette'
+
+import 'semantic-ui-css/semantic.min.css';
 
 interface RaPRootState {
     modal: boolean;
@@ -21,12 +25,6 @@ export class RaPRoot extends React.Component<any, any> {
         super(props);
         this.state = {
         }
-        setInterval(()=>this.incCnt(), 1000);
-    }
-
-    incCnt()
-    {
-        this.setState({cnt:this.state.cnt + 1});
     }
 
     eventToPoint(e:React.MouseEvent<HTMLCanvasElement>)
@@ -38,11 +36,12 @@ export class RaPRoot extends React.Component<any, any> {
 
     componentDidMount() {
         let prj = new paper.Project(this.canvas);
-        this.prj = prj;
-        let line = new paper.Path.Rectangle(new paper.Point(0,0), new paper.Point(100,100));
-        line.strokeColor = 'rgba(0, 0, 0, 0.5)';
-        line.strokeWidth = 0.5;
-        let gridLayer = new paper.Layer;
+        this.prj = prj
+        let line = new paper.Path.Rectangle(new paper.Point(0,0), new paper.Point(100,100))
+        line.strokeColor = 'rgba(0, 0, 0, 1)'
+        line.strokeWidth = 0.5
+        line.dashArray = [5, 5]
+        let gridLayer = new paper.Layer
 
         let path = new paper.Path.Rectangle(new paper.Point(75, 75), new paper.Point(100, 100));
         path.strokeColor = 'black';
@@ -108,8 +107,10 @@ export class RaPRoot extends React.Component<any, any> {
     }
 
     render() {
+        let palette = new Palette()
         return (
             <div className="mainDiv debugBorder">
+                <PaletteEditor palette={palette}/>
                 <Draggable>
                     <span className="debugBorder">
                         <Button onClick={()=>this.click()}>Click</Button>
