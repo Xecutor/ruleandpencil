@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "build_wait": "webpack -w"
+    "build_wait": "webpack -w --progress"
   },
   "author": "",
   "license": "ISC",
@@ -30,8 +30,10 @@
     "webpack": "^4.16.4"
   },
   "devDependencies": {
+    "@webpack-cli/info": "^0.1.0",
     "awesome-typescript-loader": "^3.2.3",
     "source-map-loader": "^0.2.3",
-    "webpack-cli": "^3.1.0"
+    "webpack-cli": "^3.1.0",
+    "webpack-shell-plugin": "^0.5.0"
   }
 }

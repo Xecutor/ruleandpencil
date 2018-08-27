@@ -1,3 +1,13 @@
+const WebpackShellPlugin = require('webpack-shell-plugin');
+
+let plugins = [
+new WebpackShellPlugin({
+  dev:false,
+  onBuildStart: ['echo "Starting"'],
+  onBuildEnd: ['C:/Soft/Utils/gntp-send.exe -a webpack Build finished"']
+})
+]
+
 module.exports = {
     entry: "./src/index.tsx",
     output: {
@@ -9,6 +19,8 @@ module.exports = {
 
     // Enable sourcemaps for debugging webpack's output.
     devtool: "source-map",
+
+    plugins: plugins,
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
